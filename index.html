@@ -1,55 +1,9 @@
 <!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>황야의 사냥꾼</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="game-shell">
-    <header class="hero-panel">
-      <div>
-        <p class="eyebrow">WILDERNESS CRAFTING RPG</p>
-        <h1>황야의 사냥꾼</h1>
-        <p class="subtitle">짐승을 추적하고, 전리품으로 더 강한 장비를 만드세요.</p>
-      </div>
-      <div class="hunter-badge"><span class="sprite hunter-icon"></span><span id="levelText">견습 사냥꾼</span></div>
-    </header>
-
-    <section class="status-grid" aria-label="사냥꾼 상태">
-      <article class="stone-card stat-card"><span class="sprite weapon-icon"></span><div><small>장착 무기</small><strong id="equippedWeapon">기본 활</strong><em id="weaponBonus">성공률 +0%</em></div></article>
-      <article class="stone-card stat-card"><span class="sprite boot-icon"></span><div><small>장착 장비</small><strong id="equippedGear">낡은 가죽 갑옷</strong><em id="gearBonus">사냥 시간 +0%</em></div></article>
-      <article class="stone-card stat-card"><span class="sprite map-icon"></span><div><small>개방 사냥터</small><strong id="unlockedTier">1단계 · 숲 가장자리</strong><em id="bestTier">최고 티어: 1</em></div></article>
-    </section>
-
-    <section class="game-grid">
-      <section class="wood-panel hunt-panel">
-        <div class="panel-heading"><div><p class="eyebrow">HUNTING GROUND</p><h2 id="groundName">숲 가장자리</h2></div><span class="tier-mark" id="tierMark">TIER 1</span></div>
-        <div class="ground-tabs" id="groundTabs" aria-label="사냥터 선택"></div>
-        <p id="groundDescription">토끼와 여우의 흔적이 이어지는 안전한 사냥터입니다.</p>
-        <div class="animal-row" id="animalRow"></div>
-        <div class="hunt-result" id="huntResult" aria-live="polite">바람 소리에 귀를 기울이며 먹잇감을 찾으세요.</div>
-        <div class="hunt-controls">
-          <button class="plank-button primary" id="huntButton"><span class="sprite target-icon"></span>사냥하기</button>
-          <div class="cooldown"><span>다음 추적</span><strong id="cooldownText">준비 완료</strong><div class="meter"><i id="cooldownBar"></i></div></div>
-        </div>
-      </section>
-
-      <aside class="stone-card inventory-panel">
-        <div class="panel-heading"><div><p class="eyebrow">PACK</p><h2>사냥 주머니</h2></div></div>
-        <div class="inventory-list" id="inventoryList"></div>
-      </aside>
-    </section>
-
-    <section class="wood-panel forge-panel">
-      <div class="panel-heading"><div><p class="eyebrow">WILDERNESS FORGE</p><h2>제작대</h2></div><span class="sprite anvil-icon"></span></div>
-      <p class="forge-note">제작한 장비는 즉시 장착됩니다. 철제 창을 만들면 2단계 사냥터가 열립니다.</p>
-      <div class="recipe-grid" id="recipeGrid"></div>
-    </section>
-
-    <footer><button class="reset-button" id="resetButton">진행 상황 초기화</button><span>진행 상황은 이 브라우저에 자동 저장됩니다.</span></footer>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>황야의 추적자</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="shell">
+<header><div><p>WILDERNESS ACTION RPG</p><h1>황야의 추적자</h1></div><b>WASD/방향키 이동 · Space/Shift 대시 · 클릭 공격</b></header>
+<section class="layout"><div class="world"><canvas id="game" width="960" height="600"></canvas><span id="notice">숲 가장자리에서 사냥을 시작합니다.</span></div>
+<aside><section class="panel"><p>HUNTER</p><h2 id="ground">숲 가장자리</h2><div>무기 <b id="weapon">견습 활</b></div><div>대시 <b id="dash">준비</b></div><button id="travel">안개 숲으로 이동</button></section><section class="panel"><p>PACK</p><h2>인벤토리</h2><div id="bag"></div></section></aside></section>
+<section class="panel forge"><div><p>FIELD CRAFTING</p><h2>야전 제작대</h2><small>제작 즉시 투사체가 강해집니다.</small></div><div id="recipes"></div></section>
+<footer><button id="reset">진행 초기화</button><span>진행 상황은 Local Storage에 저장됩니다.</span></footer>
+</main><script src="script.js"></script></body></html>
