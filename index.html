@@ -1,9 +1,15 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>황야의 추적자</title><link rel="stylesheet" href="style.css"></head>
-<body><main class="shell">
-<header><div><p>WILDERNESS ACTION RPG</p><h1>황야의 추적자</h1></div><b>WASD/방향키 이동 · Space/Shift 대시 · 클릭 공격</b></header>
-<section class="layout"><div class="world"><canvas id="game" width="960" height="600"></canvas><span id="notice">숲 가장자리에서 사냥을 시작합니다.</span></div>
-<aside><section class="panel"><p>HUNTER</p><h2 id="ground">숲 가장자리</h2><div>무기 <b id="weapon">견습 활</b></div><div>대시 <b id="dash">준비</b></div><button id="travel">안개 숲으로 이동</button></section><section class="panel"><p>PACK</p><h2>인벤토리</h2><div id="bag"></div></section></aside></section>
-<section class="panel forge"><div><p>FIELD CRAFTING</p><h2>야전 제작대</h2><small>제작 즉시 투사체가 강해집니다.</small></div><div id="recipes"></div></section>
-<footer><button id="reset">진행 초기화</button><span>진행 상황은 Local Storage에 저장됩니다.</span></footer>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>엄청난 사냥꾼 되기</title><link rel="stylesheet" href="style.css"></head>
+<body><main id="gameShell">
+  <canvas id="game" aria-label="엄청난 사냥꾼 되기 게임 화면"></canvas>
+  <header class="overlay title"><small>SURVIVAL HUNTER</small><h1>엄청난 사냥꾼 되기</h1><b id="zoneName">오두막</b></header>
+  <section class="overlay vitals" aria-label="생존 상태">
+    <div><label>HP</label><i><em id="hpBar"></em></i><b id="hpText">100</b></div>
+    <div><label>배고픔</label><i><em id="hungerBar"></em></i><b id="hungerText">100</b></div>
+    <div><label>체온</label><i><em id="tempBar"></em></i><b id="tempText">100</b></div>
+  </section>
+  <section class="overlay pack"><button id="packToggle">가방 <span id="packCount">0</span></button><div id="packPanel" hidden><h2>사냥 주머니</h2><div id="bag"></div></div></section>
+  <section class="overlay cabin-panel" id="cabinPanel" hidden><h2>오두막</h2><p id="cabinHint">모닥불과 제작대를 사용하세요.</p><button id="cook">고기 굽기 (고기 1)</button><div id="craft"></div></section>
+  <div class="overlay time" id="timeLabel">낮 · 06:00</div><div class="overlay message" id="message">오두막에서 살아남을 준비를 하세요.</div>
+  <div class="mobile-controls"><div id="stick"><i></i></div><button id="action">공격<br>채집</button><button id="dash">대시</button></div>
 </main><script src="script.js"></script></body></html>
