@@ -9,7 +9,8 @@
     <div><label>체온</label><i><em id="tempBar"></em></i><b id="tempText">100</b></div>
   </section>
   <section class="overlay pack"><button id="packToggle">가방 <span id="packCount">0</span></button><div id="packPanel" hidden><h2>사냥 주머니</h2><div id="bag"></div></div></section>
-  <section class="overlay cabin-panel" id="cabinPanel" hidden><h2>오두막</h2><p id="cabinHint">모닥불과 제작대를 사용하세요.</p><button id="cook">고기 굽기 (고기 1)</button><div id="craft"></div></section>
+  <section class="overlay cabin-panel" id="cabinPanel" hidden><h2>오두막</h2><p id="cabinHint">모닥불과 제작대를 사용하세요.</p><button id="cook">고기 굽기 (고기 1)</button></section>
+  <section class="overlay workbench-modal" id="workbenchModal" hidden><div class="modal-head"><h2>거친 제작대</h2><button id="closeBench">닫기</button></div><p>가지, 광물, 사냥 전리품으로 생존 장비를 만듭니다.</p><div id="craft"></div></section>
   <div class="overlay time" id="timeLabel">낮 · 06:00</div><div class="overlay message" id="message">오두막에서 살아남을 준비를 하세요.</div>
-  <div class="mobile-controls"><div id="stick"><i></i></div><button id="action">공격<br>채집</button><button id="dash">대시</button></div>
+  <button class="overlay interact" id="interact" hidden>상호작용</button><div class="mobile-controls"><div id="stick"><i></i></div><button id="action">공격<br>채집</button><button id="dash">대시</button></div>
 </main><script src="script.js"></script></body></html>
