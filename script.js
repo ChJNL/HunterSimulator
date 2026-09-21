@@ -1,6 +1,6 @@
 // assets.png: 32px grid. Every canvas visual below is drawn only with this sprite sheet.
 const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d'),T=32,SAVE='greatHunterSpriteSurvivalV1';
-const spriteImg=new Image();spriteImg.src='images/assets.png';
+const spriteImg=new Image();spriteImg.src='images/assets.png.png';
 const cell=(col,row)=>[col*T,row*T,T,T];
 const sprite={ground:cell(0,9),groundNight:cell(1,9),cabinFloor:cell(2,9),logWall:cell(3,9),player:cell(0,0),campfire:cell(1,0),workbench:cell(2,0),tree:cell(3,0),rock:cell(4,0),iron:cell(5,0),rabbit:cell(0,1),fox:cell(1,1),wolf:cell(2,1),bear:cell(3,1),boar:cell(4,1),deer:cell(5,1),lynx:cell(6,1),cougar:cell(7,1),dagger:cell(0,2),bow:cell(1,2),crossbow:cell(2,2),spear:cell(3,2),rifle:cell(4,2),axe:cell(5,2),meat:cell(0,3),hide:cell(1,3),tooth:cell(2,3),antler:cell(3,3),paw:cell(4,3),claw:cell(5,3),wood:cell(6,3),stone:cell(7,3),ironDrop:cell(0,4),projectile:cell(1,4)};
 const zones=[['오두막','cabin'],['자원 구간','resource'],['일반 동물 서식지','plain'],['맹수 동물 서식지','predator'],['희귀 동물 서식지','rare']];
