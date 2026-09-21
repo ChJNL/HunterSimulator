@@ -36,4 +36,18 @@ addEventListener('keydown',e=>{keys[e.key]=true;if(e.code==='Space'||e.key==='Sh
 let joy=$('#joystick'),knob=joy.firstElementChild,touchId=null;function joyMove(e){let p=[...e.touches].find(v=>v.identifier===touchId),r=joy.getBoundingClientRect(),dx=p.clientX-r.left-r.width/2,dy=p.clientY-r.top-r.height/2,l=Math.min(42,Math.hypot(dx,dy)),a=Math.atan2(dy,dx);touch={x:Math.cos(a)*l/42,y:Math.sin(a)*l/42};knob.style.transform='translate('+touch.x*30+'px,'+touch.y*30+'px)'}joy.addEventListener('touchstart',e=>{touchId=e.changedTouches[0].identifier;joyMove(e)},{passive:false});joy.addEventListener('touchmove',e=>{joyMove(e);e.preventDefault()},{passive:false});joy.addEventListener('touchend',()=>{touchId=null;touch={x:0,y:0};knob.style.transform=''});canvas.addEventListener('touchstart',e=>{let p=e.touches[0],r=canvas.getBoundingClientRect();aim={x:p.clientX-r.left,y:p.clientY-r.top};attack()},{passive:true});
 function cook(){if(nearCabin()!=='fire')return msg('모닥불 가까이에서만 고기를 요리할 수 있습니다.');let meat=['primeMeat','bearMeat','boarMeat','wolfMeat','deerMeat','foxMeat','rabbitMeat'].find(k=>state.bag[k]);if(!meat)return msg('구울 고기가 없습니다.');state.bag[meat]--;state.hunger=clamp(state.hunger+42,0,100);state.temp=clamp(state.temp+18,0,100);save();updateUI();msg('고기를 구워 배고픔과 체온을 회복했습니다.')}
 $('#cook').onclick=cook;setInterval(()=>{$('#cook').hidden=nearCabin()!=='fire'},120);
-setInterval(save,5000);spawn();updateUI();requestAnimationFrame(loop);
+let gameStarted=false;
+function initGame(){
+  if(gameStarted)return;
+  gameStarted=true;
+  resize();
+  spawn();
+  updateUI();
+  msg('스프라이트 시트를 불러왔습니다. 사냥을 시작하세요.');
+  requestAnimationFrame(loop);
+}
+// Do not start simulation or call drawImage until assets.png has decoded completely.
+spriteImg.onload=initGame;
+spriteImg.onerror=()=>msg('images/assets.png를 찾을 수 없습니다. 파일 경로를 확인하세요.');
+if(spriteImg.complete&&spriteImg.naturalWidth>0)initGame();
+setInterval(save,5000);
