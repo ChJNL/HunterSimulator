@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>엄청난 사냥꾼 되기</title><link rel="stylesheet" href="style.css"></head>
 <body><main id="gameShell">
-  <canvas id="game" aria-label="엄청난 사냥꾼 되기 게임 화면"></canvas>
-  <header class="overlay title"><small>SURVIVAL HUNTER</small><h1>엄청난 사냥꾼 되기</h1><b id="zoneName">오두막</b></header>
-  <section class="overlay vitals" aria-label="생존 상태">
-    <div><label>HP</label><i><em id="hpBar"></em></i><b id="hpText">100</b></div>
-    <div><label>배고픔</label><i><em id="hungerBar"></em></i><b id="hungerText">100</b></div>
-    <div><label>체온</label><i><em id="tempBar"></em></i><b id="tempText">100</b></div>
-  </section>
-  <section class="overlay pack"><button id="packToggle">가방 <span id="packCount">0</span></button><div id="packPanel" hidden><h2>사냥 주머니</h2><div id="bag"></div></div></section>
-  <section class="overlay cabin-panel" id="cabinPanel" hidden><h2>오두막</h2><p id="cabinHint">모닥불과 제작대를 사용하세요.</p><button id="cook">고기 굽기 (고기 1)</button></section>
-  <section class="overlay workbench-modal" id="workbenchModal" hidden><div class="modal-head"><h2>거친 제작대</h2><button id="closeBench">닫기</button></div><p>가지, 광물, 사냥 전리품으로 생존 장비를 만듭니다.</p><div id="craft"></div></section>
-  <div class="overlay time" id="timeLabel">낮 · 06:00</div><div class="overlay message" id="message">오두막에서 살아남을 준비를 하세요.</div>
-  <button class="overlay interact" id="interact" hidden>상호작용</button><div class="mobile-controls"><div id="stick"><i></i></div><button id="action">공격<br>채집</button><button id="dash">대시</button></div>
+  <canvas id="game" aria-label="엄청난 사냥꾼 되기 캔버스 게임"></canvas>
+  <header class="overlay masthead"><small>WILDERNESS SURVIVAL</small><h1>엄청난 사냥꾼 되기</h1><span id="zoneName">오두막</span></header>
+  <section class="overlay vital-panel"><div class="vital hp"><b>HP</b><i><em id="hpBar"></em></i><span id="hpText">100</span></div><div class="vital hunger"><b>배고픔</b><i><em id="hungerBar"></em></i><span id="hungerText">100</span></div><div class="vital temp"><b>체온</b><i><em id="tempBar"></em></i><span id="tempText">100</span></div></section>
+  <div class="overlay clock" id="clock">낮 · 07:00</div>
+  <section class="overlay inventory"><button id="bagToggle">주머니 <b id="bagCount">0</b></button><div id="bagPanel" hidden><h2>사냥 주머니</h2><div id="bag"></div></div></section>
+  <button class="overlay interaction" id="interact" hidden>상호작용</button><button class="overlay cook" id="cook" hidden>고기 굽기</button>
+  <div class="overlay hint" id="message">오두막에서 생존 준비를 시작하세요.</div>
+  <section class="overlay modal" id="workbench" hidden><header><h2>낡은 제작대</h2><button id="closeWorkbench">닫기</button></header><p>가죽과 자원을 엮어 더 오래 살아남으세요.</p><div id="recipes"></div></section>
+  <section class="touch-controls"><div id="joystick"><i></i></div><button id="touchAction">공격</button><button id="touchDash">대시</button><button id="touchInteract">사용</button></section>
 </main><script src="script.js"></script></body></html>
